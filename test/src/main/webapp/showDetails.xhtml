@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Show Details</title>
+    </h:head>
+    <h:body>
+        <h1>Show Details</h1>
+        <h2>#{show.play.title} - #{show.date} - #{show.time}</h2>
+        <h3>Theater Hall: #{show.theaterHall.name}</h3>
+        <table>
+            <ui:repeat value="#{show.theaterHall.seats}" var="seat">
+                <tr>
+                    <td>#{seat.row},#{seat.col}</td>
+                    <td>
+                        <h:outputText value="#{seat.available ? 'Available' : 'Booked'}" 
+                                      styleClass="#{seat.available ? 'available' : 'booked'}" />
+                    </td>
+                </tr>
+            </ui:repeat>
+        </table>
+    </h:body>
+</html>
