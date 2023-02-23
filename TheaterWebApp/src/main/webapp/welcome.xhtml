@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<title>LOREM THEATRE ISPUM</title>
+</h:head>
+<h:body>
+	<h1>WELCOME TO LOREM THEATRE ISPUM</h1>
+	<p>Thank you for choosing our theater. We offer a wide variety of
+		shows in two halls with different seating configurations. Please use
+		the links above to explore our shows, theaters, and halls.</p>
+
+	<h:outputLink value="playsSearch.xhtml">Search for plays</h:outputLink>
+
+	<h2>Plays Currently Playing</h2>
+
+	<ul>
+		<ui:repeat value="#{welcomeBean.plays}" var="play">
+			<li><h:form>
+					<h:outputLink value="#{play.title}" action="#{welcomeBean.showPlay(play.playId)}" outcome="playsSearch.xhtml" />
+				</h:form> <h:outputText value="" />Written by: <h:outputText
+					value="#{play.writer}" />, Directed by: <h:outputText
+					value="#{play.director}" />, Author: <h:outputText
+					value="#{play.actors}" /></li>
+		</ui:repeat>
+	</ul>
+
+</h:body>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<title>Play Search</title>
+</h:head>
+<h:body>
+
+	<h:form>
+
+		<div>
+			<h:outputText value="Already have an account?" />
+			<h:link value="Login" outcome="login" styleClass="link" />
+		</div>
+
+		<div>
+			<h:outputText value="Don't have an account?" />
+			<h:link value="Register" outcome="register" styleClass="link" />
+		
+			<div>
+			<h:outputText value="Login for more..." />
+			</div>
+		</div>
+		<p>
+			<h:outputLabel for="search" value="Date: " />
+			<h:inputText value="#{playSearchBean.searchQuery}" required="true" />
+
+			<h:commandButton value="Search" action="#{playSearchBean.search}" />
+		</p>
+	</h:form>
+	
+	<h:outputText value="Shows: " />
+
+	
+</h:body>
+</html>

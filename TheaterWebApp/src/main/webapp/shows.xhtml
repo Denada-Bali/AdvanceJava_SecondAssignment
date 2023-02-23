@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+   <h:head>
+      <title>Shows</title>
+   </h:head>
+
+   <h:body>
+      <h2>Shows</h2>
+      <h:dataTable value="#{showsBean.shows}" var="show">
+         <h:column>
+            <f:facet name="header">Play Title  </f:facet>
+            #{show.play.title}
+         </h:column>
+         <h:column>
+            <f:facet name="header">Theater Hall  </f:facet>
+            #{show.theaterHall.name}
+         </h:column>
+         <h:column>
+            <f:facet name="header">Date  </f:facet>
+            #{show.date}
+         </h:column>
+         <h:column>
+            <f:facet name="header">Time  </f:facet>
+            #{show.time}
+         </h:column>
+         <h:column>
+            <f:facet name="header">Details  </f:facet>
+            <h:commandLink value="Show Details" action="#{showsBean.showDetails}">
+               <f:param name="showId" value="#{show.id}" />
+            </h:commandLink>
+         </h:column>
+      </h:dataTable>
+
+      <h2>Theaters</h2>
+      <h:dataTable value="#{theatersBean.theaters}" var="theater">
+         <h:column>
+            <f:facet name="header">Name  </f:facet>
+            #{theater.name}
+         </h:column>
+         <h:column>
+            <f:facet name="header">Seat Plan  </f:facet>
+            #{theater.seatPlan}
+         </h:column>
+         <h:column>
+            <f:facet name="header">Seats  </f:facet>
+            #{theater.seats}
+         </h:column>
+      </h:dataTable>
+
+      <h2>Theater Halls</h2>
+      <h:dataTable value="#{theaterHallsBean.theaterHalls}" var="theaterHall">
+         <h:column>
+            <f:facet name="header">Name  </f:facet>
+            #{theaterHall.name}
+         </h:column>
+         <h:column>
+            <f:facet name="header">Layout  </f:facet>
+            #{theaterHall.layout}
+         </h:column>
+         <h:column>
+            <f:facet name="header">Rows  </f:facet>
+            #{theaterHall.rows}
+         </h:column>
+         <h:column>
+            <f:facet name="header">Columns  </f:facet>
+            #{theaterHall.columns}
+         </h:column>
+      </h:dataTable>
+   </h:body>
+
+</html>

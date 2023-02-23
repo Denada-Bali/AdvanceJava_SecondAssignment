@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html  xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Register</title>
+    </h:head>
+    <h:body>
+    <h1>Register</h1>
+        <h:form>
+            <h:panelGrid columns="2">
+                <h:outputLabel for="firstName">First Name:</h:outputLabel>
+                <h:inputText id="firstName" value="#{registerBean.firstName}" required="true" requiredMessage=" must be provided"/>
+
+                <h:outputLabel for="lastName">Last Name:</h:outputLabel>
+                <h:inputText id="lastName" value="#{registerBean.secondName}"  required="true" requiredMessage=" must be provided"/>
+
+                <h:outputLabel for="dateOfBirth">Date of Birth:</h:outputLabel>
+                <h:inputText value="#{registerBean.dateOfBirth}" required="true" requiredMessage=" must be provided">
+                    <f:convertDateTime pattern="yyyy-MM-dd" />
+                </h:inputText>
+
+                <h:outputLabel for="gender">Gender:</h:outputLabel>
+                <h:selectOneMenu id="gender" value="#{registerBean.gender}" required="true" requiredMessage=" must be provided">
+                    <f:selectItem itemLabel="Male" itemValue="1" />
+                    <f:selectItem itemLabel="Female" itemValue="2" />
+                </h:selectOneMenu>
+
+                <h:outputLabel for="email">Email:</h:outputLabel>
+                <h:inputText id="email" value="#{registerBean.email}" required="true" requiredMessage=" must be provided"/>
+
+                <h:outputLabel for="username">Username:</h:outputLabel>
+                <h:inputText id="username" value="#{registerBean.username}" required="true" requiredMessage=" must be provided"/>
+
+                <h:outputLabel for="password">Password:</h:outputLabel>
+                <h:inputSecret id="password" value="#{registerBean.password}" required="true" requiredMessage=" must be provided"/>
+
+                <h:outputLabel for="userType">User Type:</h:outputLabel>
+                <h:selectOneRadio id="userType" value="#{registerBean.userType}" required="true" requiredMessage=" must be provided">
+                    <f:selectItem itemLabel="Admin" itemValue="1" />
+                    <f:selectItem itemLabel="User" itemValue="2" />
+                </h:selectOneRadio>
+
+                <h:panelGroup></h:panelGroup>
+                <h:commandButton value="Submit" action="#{registerBean.register}" />
+
+            </h:panelGrid>
+        </h:form>
+    </h:body>
+</html>

@@ -1,0 +1,116 @@
+
+--customer
+select * from customer;
+
+--INSERT INTO customer VALUES (CUSTOMERID, FIRSTNAME, SECONDNAME, DATEOFBIRTH, GENDER, EMAIL, USERNAME, PASSWORD, USERTYPE);
+
+INSERT INTO customer VALUES (1, 'Denalda', 'Bali', '1999-10-18', 'Female', 'denaldabali@gmail.com', 'denalda', '1234', 2);
+INSERT INTO customer VALUES (2, 'Danja', 'Bali', '1999-10-18', 'Female', 'danjabali@gmail.com', 'danja','1234',1);
+INSERT INTO customer VALUES (3, 'Jane', 'Gray', '1998-07-14', 'Female', 'jgray@something.com', 'jane','1234',2);
+
+
+DELETE FROM CUSTOMER
+WHERE
+    CUSTOMERID = 2;
+
+
+UPDATE CUSTOMER
+SET
+    FIRSTNAME = 'test02' , SECONDNAME ='test02', EMAIL ='test02@something.com'
+WHERE
+    CUSTOMERID = 3;
+
+    
+--account
+select * from account;
+
+--INSERT INTO account VALUES (ACCOUNTID, CUSTOMERID);
+INSERT INTO account VALUES (1, 1);
+INSERT INTO account VALUES (2, 2);
+
+
+--plays
+select * from plays;
+
+--INSERT INTO plays VALUES (MOVIEID, TITLE, WRITER, DIRECTOR, ACTORS);
+INSERT INTO plays VALUES (1, 'No Time to Die (2021)', 'Neal Purvis, Robert Wade, Cary Joji Fukunaga','Cary Joji Fukunaga', 'Daniel Craig, Rami Malek, Léa Seydoux, Lashana Lynch, Ben Whishaw, Naomie Harris, Jeffrey Wright, Christoph Waltz, Ralph Fiennes');
+INSERT INTO plays VALUES (2, 'Maleficent (2014)', 'Linda Woolverton', 'Robert Stromberg', 'Angelina Jolie, Elle Fanning, Sharlto Copley, Lesley Manville');
+INSERT INTO plays VALUES (3, 'Titanic (1997)', 'James Cameron', 'James Cameron', ' Leonardo DiCaprio, Kate Winslet, Billy Zane, Kathy Bates');
+INSERT INTO plays VALUES (4, 'Beauty and the Beast (2017)', 'Stephen Chbosky, Evan Spiliotopoulos', 'Bill Condon', 'Emma Watson, Dan Stevens, Luke Evans, Josh Gad');
+INSERT INTO plays VALUES (5, 'La Belle et la Bête (2014) ', ' Christophe Gans, Sandra Vo-Anh', 'Christophe Gans', 'Vincent Cassel, Léa Seydoux, André Dussollier, Eduardo Noriega');
+INSERT INTO plays VALUES (6, 'Harry Potter and the Philosophers Stone (2001)', 'Steve Kloves', 'Chris Columbus', 'Daniel Radcliffe, Rupert Grint, Emma Watson, Richard Harris, Maggie Smith, Robbie Coltrane, Alan Rickman, Tom Felton, Ian Hart');
+INSERT INTO plays VALUES (7, 'The Godfather (1972)', ' Mario Puzo, Francis Ford Coppola', 'Francis Ford Coppola', 'Marlon Brando, Al Pacino, James Caan, Richard S. Castellano');
+INSERT INTO plays VALUES (8, 'Mulan (2020)', 'Rick Jaffa, Amanda Silver, Lauren Hynek, Elizabeth Martin', 'Niki Caro', 'Yifei Liu, Donnie Yen, Gong Li, Jet Li, Jason Scott Lee, Yoson An');
+
+
+UPDATE plays
+SET
+    title = 'No Time to Die (2021)' , writer ='Neal Purvis, Robert Wade, Cary Joji Fukunaga', director ='Cary Joji Fukunaga', actors= 'Daniel Craig, Rami Malek, Léa Seydoux, Lashana Lynch, Ben Whishaw, Naomie Harris, Jeffrey Wright, Christoph Waltz, Ralph Fiennes'
+WHERE
+    movieid = 1;
+    
+    
+
+--theater
+select * from theater;
+
+--INSERT INTO theater VALUES (THEATERID, 'NAME', TOTALTHEATERHALLS);
+INSERT INTO theater VALUES (1, 'Lorem Theatre Ipsum', 2);
+
+ALTER TABLE theater
+DROP CONSTRAINT TOTALTHEATERHALLS;
+
+
+--hall
+select * from hall;
+
+--INSERT INTO hall VALUES (THEATERHALLID, 'NAMEOFHALL', SEATPLANROW, SEATPLANCOLUMNS, TOTALSEATS, THEATERID);
+INSERT INTO hall VALUES (1, 'HALL-001', 10, 10, 100, 1);
+INSERT INTO hall VALUES (2, 'HALL-002', 25, 25, 50, 1);
+
+UPDATE hall
+SET
+    NAMEOFHALL = 'HALL-002'
+WHERE
+    THEATERHALLID = 2;
+    
+
+
+--ticket
+select * from ticket;
+
+--INSERT INTO ticket VALUES (TICKEDID, CUSTOMERID, THEATERID, MOVIEID, TICKETPRICE);
+INSERT INTO ticket VALUES (1, 1, 2, 2, 500);
+INSERT INTO ticket VALUES (2, 7, 1, 5, 800);
+INSERT INTO ticket VALUES (3, 9, 2, 8, 1000);
+
+
+
+--show
+select * from show;
+
+--INSERT INTO show VALUES (SHOWID, STARTDATE, 'STARTTIME', 'ENDTIME', THEATERHALLID, MOVIEID);
+INSERT INTO show VALUES (1, '19-2-2023', '20:00', '21:00', 1, 2);
+INSERT INTO show VALUES (2, '09-2-2023', '13:00', '16:00', 2, 1);
+INSERT INTO show VALUES (3, '10-3-2023', '18:00', '20:00', 1, 4);
+INSERT INTO show VALUES (4, '12-3-2023', '20:00', '22:00', 2, 5);
+INSERT INTO show VALUES (5, '04-2-2023', '21:00', '23:00', 2, 7);
+INSERT INTO show VALUES (6, '06-2-2023', '15:00', '17:00', 2, 2);
+INSERT INTO show VALUES (7, '17-2-2023', '17:00', '19:00', 1, 5);
+INSERT INTO show VALUES (8, '18-3-2023', '08:00', '10:00', 1, 1);
+INSERT INTO show VALUES (9, '19-2-2023', '11:00', '13:00', 1, 2);
+INSERT INTO show VALUES (10, '08-3-2023', '21:00', '22:00', 2, 3);
+INSERT INTO show VALUES (11, '02-2-2023', '16:00', '18:00', 1, 6);
+INSERT INTO show VALUES (12, '11-2-2023', '13:00', '15:00', 2, 7);
+INSERT INTO show VALUES (13, '01-2-2023', '17:00', '19:00', 1, 8);
+INSERT INTO show VALUES (14, '13-2-2023', '17:00', '19:00', 2, 4);
+INSERT INTO show VALUES (15, '04-2-2023', '18:00', '20:00', 1, 2);
+INSERT INTO show VALUES (16, '19-2-2023', '13:00', '15:00', 2, 6);
+INSERT INTO show VALUES (17, '20-5-2023', '21:00', '23:00', 1, 1);
+INSERT INTO show VALUES (18, '25-2-2023', '21:00', '23:00', 2, 8);
+INSERT INTO show VALUES (19, '31-3-2023', '19:00', '22:00', 1, 3);
+INSERT INTO show VALUES (20, '28-2-2023', '19:00', '22:00', 1, 8);
+
+
+
+
